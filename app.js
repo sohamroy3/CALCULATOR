@@ -45,22 +45,14 @@ for(var i =0;i<operator.length;i++){
 			var output=(getCurrent());
 			output=output*output;
 			printCurrent(output);
-<<<<<<< HEAD
-			// printHistory("");
-=======
-// 			printHistory("");
->>>>>>> fa39128a4e9c1a84c0069a35b3307aa72950c63a
+
 
 		}
 		else if(this.id=="root"){
 			var output=(getCurrent());
 			output=Math.sqrt(output);
 			printCurrent(output);
-<<<<<<< HEAD
-			// printHistory("");
-=======
-// 			printHistory("");
->>>>>>> fa39128a4e9c1a84c0069a35b3307aa72950c63a
+
 
 		}
 		else{//all operator except delete amd clear
