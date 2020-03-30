@@ -12,19 +12,19 @@ printCurrent=(num)=>{
 		document.getElementById("current-value").innerText=num;//beacause en-IN formatting makes empty to 0
 	}
 	else{
-		document.getElementById("current-value").innerText=addComma(num);
+		document.getElementById("current-value").innerText=(num);
 	}	
 }
 //FUNTIONS FOR NUMBER FORMATTING
-addComma=(num)=>{
-	if(num=="-"){
-		return "";
-	}
-	return Number(num).toLocaleString("en-IN");
-}
-removeComma=(num)=>{
-	return Number(num.replace(/,/g,''));// "/,/g" is a regular expression to sellect al the commas in the expression
-}
+// =(num)=>{
+// 	if(num=="-"){
+// 		return "";
+// 	}
+// 	return Number(num).toLocaleString("en-IN");
+// }
+// =(num)=>{
+// 	return Number(num.replace(/,/g,''));// "/,/g" is a regular expression to sellect al the commas in the expression
+// }
 
 //FUNCTING FOR THE BUTTONS
 var operator = document.getElementsByClassName("operator");
@@ -35,24 +35,32 @@ for(var i =0;i<operator.length;i++){
 			printCurrent("");
 		}
 		else if(this.id=="delete"){
-			var output=removeComma(getCurrent()).toString();//As removeComma makes a Number so again makes it a string
+			var output=(getCurrent()).toString();//As  makes a Number so again makes it a string
 			if(output){//if output has a value
 				output= output.substr(0,output.length-1);//Make the whole string into a substring which has last character removed
 				printCurrent(output);
 			}
 		}
 		else if(this.id=="squre"){
-			var output=removeComma(getCurrent());
+			var output=(getCurrent());
 			output=output*output;
 			printCurrent(output);
-			printHistory("");
+<<<<<<< HEAD
+			// printHistory("");
+=======
+// 			printHistory("");
+>>>>>>> fa39128a4e9c1a84c0069a35b3307aa72950c63a
 
 		}
 		else if(this.id=="root"){
-			var output=removeComma(getCurrent());
+			var output=(getCurrent());
 			output=Math.sqrt(output);
 			printCurrent(output);
-			printHistory("");
+<<<<<<< HEAD
+			// printHistory("");
+=======
+// 			printHistory("");
+>>>>>>> fa39128a4e9c1a84c0069a35b3307aa72950c63a
 
 		}
 		else{//all operator except delete amd clear
@@ -60,7 +68,7 @@ for(var i =0;i<operator.length;i++){
 			var history=getHistory();
 
 			if(output!=""){
-				output=removeComma(output);
+				output=(output);
 				history=history+output;
 				if(this.id=="="){//if the oprator is =
 					var result=eval(history);//If the argument is an expression, eval() evaluates the expression
@@ -80,10 +88,10 @@ for(var i =0;i<operator.length;i++){
 var number = document.getElementsByClassName("number");
 for(var i =0;i<number.length;i++){
 	number[i].addEventListener('click',function(){
-		var output=removeComma(getCurrent());
-		if(output!=NaN){ //if output is a number
+		var output=(getCurrent());
+		// if(output!=NaN){ //if output is a number
 			output=output+this.id;//Concatination with Number and id string
 			printCurrent(output);
-		}
+		// }
 	});
 }
