@@ -8,12 +8,7 @@ getCurrent=()=>{
     return document.getElementById("current-value").innerText;
 }
 printCurrent=(num)=>{
-    if(num==""){
-		document.getElementById("current-value").innerText=num;//beacause en-IN formatting makes empty to 0
-	}
-	else{
-		document.getElementById("current-value").innerText=(num);
-	}	
+	document.getElementById("current-value").innerText=(num);
 }
 //FUNTIONS FOR NUMBER FORMATTING
 // =(num)=>{
@@ -34,11 +29,15 @@ for(var i =0;i<operator.length;i++){
 			printHistory("");
 			printCurrent("");
 		}
-		else if(this.id=="delete"){
-			var output=(getCurrent()).toString();//As  makes a Number so again makes it a string
-			if(output){//if output has a value
+		else if(this.id=="delete"){// output.match(/^[0-9.]+$/) != null
+			var output=getCurrent();
+			if(output.match(/^[0-9.]+$/) != null){//if output has a value
 				output= output.substr(0,output.length-1);//Make the whole string into a substring which has last character removed
 				printCurrent(output);
+			}
+			else{
+				printCurrent("");
+
 			}
 		}
 		else if(this.id=="squre"){
@@ -52,7 +51,6 @@ for(var i =0;i<operator.length;i++){
 			var output=(getCurrent());
 			output=Math.sqrt(output);
 			printCurrent(output);
-
 
 		}
 		else{//all operator except delete amd clear
@@ -81,9 +79,9 @@ var number = document.getElementsByClassName("number");
 for(var i =0;i<number.length;i++){
 	number[i].addEventListener('click',function(){
 		var output=(getCurrent());
-		// if(output!=NaN){ //if output is a number
+		if(output!=NaN){ //if output is a number
 			output=output+this.id;//Concatination with Number and id string
 			printCurrent(output);
-		// }
+		}
 	});
 }
