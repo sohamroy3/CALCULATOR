@@ -31,7 +31,7 @@ for(var i =0;i<operator.length;i++){
 		}
 		else if(this.id=="delete"){// output.match(/^[0-9.]+$/) != null
 			var output=getCurrent();
-			if(output.match(/^[0-9.]+$/) != null){//if output has a value
+			if(output.match(/^[0-9.-]+$/) != null){//if output has a value
 				output= output.substr(0,output.length-1);//Make the whole string into a substring which has last character removed
 				printCurrent(output);
 			}
